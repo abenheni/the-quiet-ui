@@ -6,89 +6,102 @@
     <title>The Quiet Year</title>
     <link href="./dist/output.css" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen p-4">    <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold text-gray-100 text-center mb-4">The Quiet Year</h1>
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen p-3">    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-100 text-center mb-3">The Quiet Year</h1>
         
-        <!-- Suit Selection -->
-        <div class="bg-gray-700 rounded-lg shadow-lg p-6 mb-6 border border-gray-600">
-            <h2 class="text-2xl font-semibold text-gray-100 mb-4">Select Suit</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 justify-center">
-                <button id="heartsBtn" class="suit-btn bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 active">
-                    Hearts ♥
-                </button>
-                <button id="diamondsBtn" class="suit-btn bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                    Diamonds ♦
-                </button>                <button id="spadesBtn" class="suit-btn bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                    Spades ♠
-                </button>
-                <button id="clubsBtn" class="suit-btn bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                    Clubs ♣
-                </button>
+        <!-- Suit Selection and Draw Card in Two-Column Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+            <!-- Suit Selection -->
+            <div class="bg-gray-700 rounded-lg shadow-lg p-3 border border-gray-600 md:col-span-2">
+                <h2 class="text-xl font-semibold text-gray-100 mb-2">Select Suit</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 justify-center">
+                    <button id="heartsBtn" class="suit-btn bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-lg transition duration-300 active">
+                        Hearts ♥
+                    </button>
+                    <button id="diamondsBtn" class="suit-btn bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-lg transition duration-300">
+                        Diamonds ♦
+                    </button>                <button id="spadesBtn" class="suit-btn bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-3 rounded-lg transition duration-300">
+                        Spades ♠
+                    </button>
+                    <button id="clubsBtn" class="suit-btn bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-3 rounded-lg transition duration-300">
+                        Clubs ♣
+                    </button>
+                </div>
+            </div>
+
+            <!-- Draw Card Section -->
+            <div class="bg-gray-700 rounded-lg shadow-lg p-3 border border-gray-600 flex flex-col justify-center">
+                <div class="text-center">
+                    <button id="drawBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 w-full mb-2">
+                        Draw Card
+                    </button>                <div class="text-sm text-gray-300">
+                        Cards remaining: <span id="cardCount">13</span>
+                    </div>
+                </div>
             </div>
         </div>
         
         <!-- Season Theme Banner -->
-        <div id="seasonBanner" class="text-center mb-6 py-4 px-6 rounded-lg bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600">
+        <div id="seasonBanner" class="text-center mb-3 py-2 px-3 rounded-lg bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600">
             <div class="flex items-center justify-center">
-                <div id="seasonIcons" class="text-3xl mr-4">♥</div>
+                <div id="seasonIcons" class="text-2xl mr-3">♥</div>
                 <div>
                     <div id="seasonName" class="text-xl font-medium text-gray-100">Spring</div>
                     <div id="seasonDescription" class="text-sm text-gray-300">A time of growth and discovery</div>
                 </div>
             </div>
-        </div><!-- Draw Card Section -->
-        <div class="bg-gray-700 rounded-lg shadow-lg p-6 mb-6 border border-gray-600">
-            <div class="text-center">
-                <button id="drawBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-xl transition duration-300 mb-4">
-                    Draw Card
-                </button>                <div class="text-sm text-gray-300">
-                    Cards remaining: <span id="cardCount">13</span>
-                </div>
+        </div>
+        
+        <!-- Card Display -->
+        <div id="cardDisplay" class="bg-gray-700 rounded-lg shadow-lg p-4 text-center hidden border border-gray-600 mb-3">
+            <div class="flex items-center justify-center mb-2">
+                <div class="text-4xl mr-2" id="cardSymbol"></div>
+                <div class="text-2xl font-bold text-gray-100" id="cardValue"></div>
+                <div class="text-lg text-gray-400 ml-2" id="cardSuit"></div>
             </div>
-        </div>        <!-- Card Display -->
-        <div id="cardDisplay" class="bg-gray-700 rounded-lg shadow-lg p-8 text-center hidden border border-gray-600">
-            <div class="text-6xl mb-4" id="cardSymbol"></div>
-            <div class="text-3xl font-bold mb-2 text-gray-100" id="cardValue"></div>
-            <div class="text-xl text-gray-400 mb-6" id="cardSuit"></div>            <!-- Card Content -->
-            <div class="mt-6 border-t border-gray-700 pt-6">
-                <div class="space-y-4">
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-600">
-                        <div class="text-md font-medium text-gray-300 mb-2">Option 1</div>
-                        <div id="cardPrimary" class="text-lg text-gray-100"></div>
+            
+            <!-- Card Content -->
+            <div class="border-t border-gray-700 pt-3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="p-3 bg-gray-800 rounded-lg border border-gray-600">
+                        <div class="text-sm font-medium text-gray-300 mb-1">Option 1</div>
+                        <div id="cardPrimary" class="text-base text-gray-100"></div>
                     </div>
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-600">
-                        <div class="text-md font-medium text-gray-300 mb-2">Option 2</div>
-                        <div id="cardSecondary" class="text-lg text-gray-100"></div>
+                    <div class="p-3 bg-gray-800 rounded-lg border border-gray-600">
+                        <div class="text-sm font-medium text-gray-300 mb-1">Option 2</div>
+                        <div id="cardSecondary" class="text-base text-gray-100"></div>
                     </div>
                 </div>
             </div>
-        </div><!-- Card History -->
-        <div class="bg-gray-700 rounded-lg shadow-lg p-6 border border-gray-600">
-            <h3 class="text-xl font-semibold text-gray-100 mb-4">Drawn Cards</h3>
-            <div id="cardHistory" class="grid grid-cols-8 gap-2 text-center"></div>
-        </div></div>    <!-- Inline JavaScript - No modules to avoid CORS errors -->
-    
-    <!-- Card Overlay (Initially hidden) -->
+        </div>
+          <!-- Card History -->
+        <div class="bg-gray-700 rounded-lg shadow-lg p-3 border border-gray-600">
+            <h3 class="text-lg font-semibold text-gray-100 mb-2">Drawn Cards</h3>
+            <div id="cardHistory" class="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1 text-center"></div>
+        </div>
+    </div>    <!-- Inline JavaScript - No modules to avoid CORS errors -->
+      <!-- Card Overlay (Initially hidden) -->
     <div id="cardOverlay" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
-        <div class="bg-gray-800 rounded-lg shadow-xl p-8 max-w-lg w-full mx-4 relative border border-gray-600">            <button id="closeOverlay" class="absolute top-4 right-4 text-gray-400 hover:text-gray-100" title="Close card details" aria-label="Close card details">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-gray-800 rounded-lg shadow-xl p-4 max-w-lg w-full mx-4 relative border border-gray-600">
+            <button id="closeOverlay" class="absolute top-2 right-2 text-gray-400 hover:text-gray-100" title="Close card details" aria-label="Close card details">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            <div class="text-center mb-4">
-                <div class="text-6xl mb-4" id="overlaySymbol"></div>
-                <div class="text-3xl font-bold mb-2 text-gray-100" id="overlayValue"></div>
-                <div class="text-xl text-gray-400 mb-6" id="overlaySuit"></div>
+            <div class="flex items-center justify-center mb-2">
+                <div class="text-4xl mr-2" id="overlaySymbol"></div>
+                <div class="text-2xl font-bold text-gray-100 mr-1" id="overlayValue"></div>
+                <div class="text-lg text-gray-400" id="overlaySuit"></div>
             </div>
-            <div class="mt-6 border-t border-gray-700 pt-6">
-                <div class="space-y-4">
-                    <div class="p-4 bg-gray-700 rounded-lg border border-gray-600">
-                        <div class="text-md font-medium text-gray-300 mb-2">Option 1</div>
-                        <div id="overlayPrimary" class="text-lg text-gray-100"></div>
+            <div class="border-t border-gray-700 pt-3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="p-3 bg-gray-700 rounded-lg border border-gray-600">
+                        <div class="text-sm font-medium text-gray-300 mb-1">Option 1</div>
+                        <div id="overlayPrimary" class="text-base text-gray-100"></div>
                     </div>
-                    <div class="p-4 bg-gray-700 rounded-lg border border-gray-600">
-                        <div class="text-md font-medium text-gray-300 mb-2">Option 2</div>
-                        <div id="overlaySecondary" class="text-lg text-gray-100"></div>
+                    <div class="p-3 bg-gray-700 rounded-lg border border-gray-600">
+                        <div class="text-sm font-medium text-gray-300 mb-1">Option 2</div>
+                        <div id="overlaySecondary" class="text-base text-gray-100"></div>
                     </div>
                 </div>
             </div>
@@ -469,10 +482,9 @@
          */        function createCardHistoryElement(card, uiClasses) {
             const cardElement = document.createElement('div');
             const cardClass = card.color === 'red' ? uiClasses.RED_CARD : uiClasses.BLACK_CARD;
-            cardElement.className = `p-2 border rounded ${cardClass} cursor-pointer hover:shadow-lg hover:bg-gray-500 transition-all`;
+            cardElement.className = `p-1 border rounded-sm ${cardClass} cursor-pointer hover:shadow-md hover:bg-gray-500 transition-all`;
             cardElement.innerHTML = `
-                <div class="text-sm font-semibold">${card.value}</div>
-                <div class="text-xs">${card.symbol}</div>
+                <div class="text-xs font-medium">${card.value}${card.symbol}</div>
             `;
             
             // Store card data for tooltip or click events
