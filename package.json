@@ -1,0 +1,22 @@
+{
+  "name": "html-card-quiet-year",
+  "version": "1.0.0",
+  "description": "A vanilla HTML project with Tailwind CSS",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abenheni/the-quiet-ui.git"
+  },
+  "homepage": "https://abenheni.github.io/the-quiet-ui",
+  "scripts": {
+    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "dev": "npm run build-css"
+  },
+  "keywords": ["html", "tailwindcss", "vanilla"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
